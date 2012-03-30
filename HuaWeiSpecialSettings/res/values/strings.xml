@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="huawei_settings">"Factory"</string>
+    <string name="dualmic_enable_title">Enable dualmic</string>
+    <string name="dualmic_enable_summary">Use the dual microphone to eliminate the call Echo</string>	
+    <string name="headsetmic_enable_title">Use headset microphone</string>
+    <string name="headsetmic_enable_summary">When you insert the headset use the headset microphone</string>
+</resources>
+

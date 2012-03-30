@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="huawei_settings">"原厂设置"</string>
+
+    <string name="dualmic_enable_title">开启双麦克</string>
+    <string name="dualmic_enable_summary">使用双麦克消除通话回音</string>
+    <string name="headsetmic_enable_title">使用耳机麦克</string>
+    <string name="headsetmic_enable_summary">插入耳机通话时使用耳机麦克</string>
+</resources>
+
