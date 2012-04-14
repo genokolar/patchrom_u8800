@@ -9,7 +9,7 @@ local-zip-file     :=aurora_2.03_test.zip
 local-out-zip-file := MIUI_u8860.zip
 
 #
-local-miui-modified-apps := MiuiSystemUI Mms
+local-miui-modified-apps := MiuiSystemUI Mms Settings
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps := SettingsProvider
@@ -40,10 +40,10 @@ local-zip-misc:
 	cp other/boot.img $(ZIP_DIR)/
 	cp other/enhanced.conf $(ZIP_DIR)/system/etc/enhanced.conf
 	cp other/HuaWeiSettings.apk $(ZIP_DIR)/system/app/HuaWeiSettings.apk
-	cp other/app/DolphinBrowser.apk $(ZIP_DIR)/system/app/DolphinBrowser.apk
-	cp other/app/UCBrowser7.apk $(ZIP_DIR)/system/app/UCBrowser7.apk
-	cp other/lib/libCTZip.so $(ZIP_DIR)/system/lib/libwebp.so
-	cp other/lib/libwebp.so $(ZIP_DIR)/system/lib/libwebp.so
+#	cp other/app/DolphinBrowser.apk $(ZIP_DIR)/system/app/DolphinBrowser.apk
+#	cp other/app/UCBrowser7.apk $(ZIP_DIR)/system/app/UCBrowser7.apk
+#	cp other/lib/libCTZip.so $(ZIP_DIR)/system/lib/libwebp.so
+#	cp other/lib/libwebp.so $(ZIP_DIR)/system/lib/libwebp.so
 
 
 rename-zip:
