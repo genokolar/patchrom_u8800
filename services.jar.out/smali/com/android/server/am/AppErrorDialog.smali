@@ -20,13 +20,15 @@
 
 .field private final mResult:Lcom/android/server/am/AppErrorResult;
 
+.field private final mCrashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;Landroid/app/ApplicationErrorReport$CrashInfo;)V
     .locals 7
     .parameter "context"
     .parameter "result"
     .parameter "app"
+    .parameter "crashInfo"
 
     .prologue
     const/4 v6, 0x1
@@ -56,6 +58,7 @@
     iput-object p2, p0, Lcom/android/server/am/AppErrorDialog;->mResult:Lcom/android/server/am/AppErrorResult;
 
     .line 50
+    iput-object p4, p0, Lcom/android/server/am/AppErrorDialog;->mCrashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
     iget-object v2, p3, Lcom/android/server/am/ProcessRecord;->pkgList:Ljava/util/HashSet;
 
     invoke-virtual {v2}, Ljava/util/HashSet;->size()I
@@ -283,4 +286,18 @@
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mResult:Lcom/android/server/am/AppErrorResult;
 
     return-object v0
+.end method
+
+.method static synthetic access$200(Lcom/android/server/am/AppErrorDialog;)Landroid/app/ApplicationErrorReport$CrashInfo;
+
+    .locals 1
+
+    .parameter "x0"
+
+    .prologue
+
+    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mCrashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
+
+    return-object v0
+
 .end method
