@@ -1,0 +1,15 @@
+#!/bin/sh
+if [ ! -e ./target_files.zip ]
+then
+cp ./out/target_files.zip ./target_files.zip
+echo copy target_files.zip from out_dir
+else
+echo target_files.zip already exists
+fi
+../tools/releasetools/ota_from_target_files -k ../build/security/testkey -i last_target_files.zip target_files.zip ./ota_upate.zip
+mv ./last_target_files2.zip ./last_target_files3.zip
+mv ./last_target_files.zip ./last_target_files2.zip
+mv ./target_files.zip ./last_target_files.zip
+cp ./out/fullota.zip ./miui_"$1"_"$2"_xxx_4.0.zip
+mv ./ota_upate.zip ./miui-ota-"$1"-"$3"-"$2"-xxx-4.0.zip
+
