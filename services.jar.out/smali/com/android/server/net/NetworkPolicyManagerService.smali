@@ -799,7 +799,7 @@
 .end method
 
 .method private static buildViewDataUsageIntent(Landroid/net/NetworkTemplate;)Landroid/content/Intent;
-    .locals 4
+    .locals 2
     .parameter "template"
 
     .prologue
@@ -810,15 +810,9 @@
 
     .line 1589
     .local v0, intent:Landroid/content/Intent;
-    new-instance v1, Landroid/content/ComponentName;
+    const-string v1, "android.intent.action.VIEW_DATA_USAGE_SUMMARY"
 
-    const-string v2, "com.android.settings"
-
-    const-string v3, "com.android.settings.Settings$DataUsageSummaryActivity"
-
-    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 1591
     const/high16 v1, 0x1000
@@ -1153,29 +1147,20 @@
 
     invoke-direct {v7, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 534
     .local v7, builder:Landroid/app/Notification$Builder;
     const/4 v0, 0x1
 
     invoke-virtual {v7, v0}, Landroid/app/Notification$Builder;->setOnlyAlertOnce(Z)Landroid/app/Notification$Builder;
 
-    .line 535
-    const/4 v0, 0x1
-
-    invoke-virtual {v7, v0}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
-
-    .line 537
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
 
-    .line 538
     .local v11, res:Landroid/content/res/Resources;
     packed-switch p2, :pswitch_data_0
 
-    .line 623
     :goto_0
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
@@ -2090,13 +2075,17 @@
 .end method
 
 .method private getTotalBytes(Landroid/net/NetworkTemplate;JJ)J
-    .locals 7
+    .locals 12
     .parameter "template"
     .parameter "start"
     .parameter "end"
 
     .prologue
     .line 1554
+
+    const-wide/16 v10, 0x0
+
+    .local v10, total:J
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkStats:Landroid/net/INetworkStatsService;
 
@@ -2104,7 +2093,7 @@
 
     move-wide v2, p2
 
-    move-wide v4, p4
+    move-wide/from16 v4, p4
 
     invoke-interface/range {v0 .. v5}, Landroid/net/INetworkStatsService;->getSummaryForNetwork(Landroid/net/NetworkTemplate;JJ)Landroid/net/NetworkStats;
 
@@ -2114,19 +2103,80 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-wide v0
+    move-result-wide v10
 
     .line 1557
     :goto_0
-    return-wide v0
+    invoke-virtual {p1}, Landroid/net/NetworkTemplate;->getMatchRule()I
 
     .line 1555
-    :catch_0
-    move-exception v6
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "data_usage_adjusting_time"
+
+    const-wide/16 v2, 0x0
+
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$Secure;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
+
+    move-result-wide v6
+
+    .local v6, adjustingTime:J
+
+    cmp-long v0, v6, p2
+
+    if-ltz v0, :cond_0
+
+    cmp-long v0, v6, p4
 
     .line 1557
-    .local v6, e:Landroid/os/RemoteException;
+    if-gtz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "data_usage_adjustment"
+
+    const-wide/16 v2, 0x0
+
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$Secure;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
+
+    move-result-wide v8
+
+    .local v8, adjustment:J
+
     const-wide/16 v0, 0x0
+
+    add-long v2, v10, v8
+
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v10
+
+    .end local v6           #adjustingTime:J
+
+    .end local v8           #adjustment:J
+
+    :cond_0
+
+    return-wide v10
+
+    :catch_0
+
+    move-exception v0
 
     goto :goto_0
 .end method

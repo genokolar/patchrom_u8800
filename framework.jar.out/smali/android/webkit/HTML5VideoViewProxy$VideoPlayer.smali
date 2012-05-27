@@ -184,7 +184,7 @@
 
     .line 171
     :cond_0
-    new-instance v2, Landroid/webkit/HTML5VideoFullScreen;
+    new-instance v2, Landroid/webkit/MiuiHTML5VideoFullScreen;
 
     iget-object v3, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
 
@@ -192,7 +192,7 @@
 
     move-result-object v3
 
-    invoke-direct {v2, v3, p1, v0, v1}, Landroid/webkit/HTML5VideoFullScreen;-><init>(Landroid/content/Context;IIZ)V
+    invoke-direct {v2, v3, p1, v0, v1}, Landroid/webkit/MiuiHTML5VideoFullScreen;-><init>(Landroid/content/Context;IIZ)V
 
     iput-object v2, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mHTML5VideoView:Landroid/webkit/HTML5VideoView;
 
@@ -371,7 +371,7 @@
 
     iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mHTML5VideoView:Landroid/webkit/HTML5VideoView;
 
-    instance-of v0, v0, Landroid/webkit/HTML5VideoFullScreen;
+    instance-of v0, v0, Landroid/webkit/MiuiHTML5VideoFullScreen;
 
     if-eqz v0, :cond_3
 

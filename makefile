@@ -9,18 +9,19 @@ local-zip-file     :=aurora_2.03_test.zip
 local-out-zip-file := MIUI_u8860.zip
 
 #
-local-miui-modified-apps := MiuiSystemUI Mms Settings
+local-miui-modified-apps := MiuiSystemUI Mms Settings  MiuiHome
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps := SettingsProvider
 
 # All apks from MIUI
-local-miui-removed-apps     := Phone SettingsProvider MediaProvider
+local-miui-removed-apps     := Phone SettingsProvider MediaProvider Stk Bluetooth
 
 # All apps need to be removed from original ZIP file
 local-remove-apps := AllBackup SystemUI SetupWizard Cloud NotePad HwIME Superuser MusicFx Launcher2 FileManager HwOUC \
 	rootexplorer GenieWidget GalleryGoogle CalendarGoogle GoogleQuickSearchBox GooglePackageVerifier GooglePackageVerifierUpdater \
-	GoogleTTS GooglePlayMusic TotemWeather Trebuchet YouTube PinyinIME es com.google.android.music OpenWnn VideoEditor Wiper
+	GoogleTTS GooglePlayMusic TotemWeather Trebuchet YouTube PinyinIME es com.google.android.music OpenWnn VideoEditor Wiper \
+        Gmail Talk GooglePlayStore Gallery4
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:

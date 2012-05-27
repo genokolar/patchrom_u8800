@@ -3763,24 +3763,24 @@
     goto :goto_0
 .end method
 
-.method static clearPreloadedCache()V
+.method public getPowerButtonInstantlyLocks()Z
     .locals 1
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
-    sget-object v0, Landroid/content/res/Resources;->sPreloadedDrawables:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v0}, Landroid/util/LongSparseArray;->clear()V
+    const/4 v0, 0x0
 
-    sget-object v0, Landroid/content/res/Resources;->mPreloadedColorStateLists:Landroid/util/SparseArray;
+    return v0
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
+.end method
 
-    sget-object v0, Landroid/content/res/Resources;->sPreloadedColorDrawables:Landroid/util/LongSparseArray;
+.method public setPowerButtonInstantlyLocks(Z)V
+    .locals 0
+    .parameter "value"
 
-    invoke-virtual {v0}, Landroid/util/LongSparseArray;->clear()V
+    .prologue
 
     return-void
+
 .end method
+

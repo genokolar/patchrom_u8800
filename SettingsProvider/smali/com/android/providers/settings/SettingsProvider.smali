@@ -2169,7 +2169,6 @@
 
     goto :goto_1
 
-    .line 704
     :catch_2
     move-exception v9
 
@@ -2187,7 +2186,6 @@
 
     goto :goto_1
 
-    .line 713
     .end local v6           #authority:Ljava/lang/String;
     .end local v9           #ex:Ljava/io/FileNotFoundException;
     .end local v10           #isDrmAuthority:Z
