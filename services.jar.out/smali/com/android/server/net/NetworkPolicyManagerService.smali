@@ -1127,7 +1127,7 @@
     return-void
 .end method
 
-.method private enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
+.method protected enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
     .locals 14
     .parameter "policy"
     .parameter "type"
@@ -2829,7 +2829,7 @@
     goto :goto_0
 .end method
 
-.method private setNetworkTemplateEnabled(Landroid/net/NetworkTemplate;Z)V
+.method protected setNetworkTemplateEnabled(Landroid/net/NetworkTemplate;Z)V
     .locals 2
     .parameter "template"
     .parameter "enabled"
@@ -3083,7 +3083,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->setNetworkTemplateEnabled(Landroid/net/NetworkTemplate;Z)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->setNetworkTemplateEnabled(Landroid/net/NetworkTemplate;Z)V
 
     goto :goto_0
 
@@ -3137,7 +3137,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v1, v9}, Lcom/android/server/net/NetworkPolicyManagerService;->setNetworkTemplateEnabled(Landroid/net/NetworkTemplate;Z)V
+    invoke-virtual {v0, v1, v9}, Lcom/android/server/net/NetworkPolicyManagerService;->setNetworkTemplateEnabled(Landroid/net/NetworkTemplate;Z)V
 
     goto :goto_0
 
@@ -3902,7 +3902,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v11, v1, v13, v14}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
+    invoke-virtual {v0, v11, v1, v13, v14}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
 
     goto :goto_0
 
@@ -3912,7 +3912,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v11, v1, v13, v14}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
+    invoke-virtual {v0, v11, v1, v13, v14}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
 
     .line 463
     iget-object v1, v11, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
@@ -3951,7 +3951,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v11, v1, v13, v14}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
+    invoke-virtual {v0, v11, v1, v13, v14}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
 
     goto :goto_0
 

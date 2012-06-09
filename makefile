@@ -9,7 +9,7 @@ local-zip-file     :=aurora_2.03_test.zip
 local-out-zip-file := MIUI_u8860.zip
 
 #
-local-miui-modified-apps := MiuiSystemUI Mms Settings  MiuiHome
+local-miui-modified-apps := MiuiSystemUI Mms Settings  MiuiHome ThemeManager
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps := SettingsProvider
