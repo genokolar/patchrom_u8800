@@ -69,7 +69,7 @@
 
     .line 1438
     :cond_1
-const-string v15, "android.intent.action.RESTORE_FINISH"
+    const-string v15, "android.intent.action.RESTORE_FINISH"
 
     invoke-virtual {v15, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

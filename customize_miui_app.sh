@@ -22,3 +22,10 @@ fi
 if [ $1 = "ThemeManager" ];then
     $XMLMERGYTOOL $1/res/values $2/res/values
 fi
+
+if [ $1 = "Phone" ];then
+	echo "Merge Phone's xml"
+	$XMLMERGYTOOL $1/res/values $2/res/values
+	echo "replace functions in Phone"
+	$PORT_ROOT/honor/replace_functions_in_phone.sh $2
+fi

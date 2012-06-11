@@ -439,6 +439,7 @@
 
     iput-object v2, v0, Lcom/android/server/ConnectivityService;->mPolicyListener:Landroid/net/INetworkPolicyListener;
 
+    .line 369
     const-string v2, "ConnectivityService starting up"
 
     move-object/from16 v0, p0
@@ -453,9 +454,11 @@
 
     invoke-direct {v13, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
+    .line 372
     .local v13, handlerThread:Landroid/os/HandlerThread;
     invoke-virtual {v13}, Landroid/os/HandlerThread;->start()V
 
+    .line 373
     new-instance v2, Lcom/android/server/ConnectivityService$MyHandler;
 
     invoke-virtual {v13}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
@@ -14148,6 +14151,7 @@
 
     invoke-interface {v13, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 1068
     :cond_7
     monitor-exit p0
     :try_end_0
@@ -14169,6 +14173,7 @@
 
     if-ltz v10, :cond_8
 
+    .line 1071
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/ConnectivityService;->mHandler:Landroid/os/Handler;
@@ -14465,13 +14470,10 @@
 
     if-eqz v7, :cond_0
 
-    .line 1123
     move-object v3, v5
 
-    .line 1124
     const/4 v0, 0x1
 
-    .line 1128
     .end local v5           #x:Lcom/android/server/ConnectivityService$FeatureUser;
     :cond_1
     monitor-exit p0
@@ -14483,16 +14485,13 @@
 
     if-eqz v3, :cond_2
 
-    .line 1131
     invoke-direct {p0, v3, v6}, Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
 
     move-result v6
 
-    .line 1135
     :goto_0
     return v6
 
-    .line 1128
     .end local v1           #i$:Ljava/util/Iterator;
     :catchall_0
     move-exception v6

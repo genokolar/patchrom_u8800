@@ -56,6 +56,8 @@
 
 .field public static final PORT:Ljava/lang/String; = "port"
 
+.field public static final PROFILE_TYPE:Ljava/lang/String; = "profile_type"
+
 .field public static final PROTOCOL:Ljava/lang/String; = "protocol"
 
 .field public static final PROXY:Ljava/lang/String; = "proxy"
@@ -74,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 1721
+    .line 1889
     const-string v0, "content://telephony/carriers"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -90,7 +92,7 @@
     .locals 0
 
     .prologue
-    .line 1717
+    .line 1885
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

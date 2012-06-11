@@ -9,13 +9,13 @@ local-zip-file     :=aurora_2.03_test.zip
 local-out-zip-file := MIUI_u8860.zip
 
 #
-local-miui-modified-apps := MiuiSystemUI Mms Settings  MiuiHome ThemeManager
+local-miui-modified-apps := MiuiSystemUI Mms Settings MiuiHome ThemeManager Phone
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps := SettingsProvider
 
 # All apks from MIUI
-local-miui-removed-apps     := Phone SettingsProvider MediaProvider Stk Bluetooth
+local-miui-removed-apps     := SettingsProvider MediaProvider Stk Bluetooth
 
 # All apps need to be removed from original ZIP file
 local-remove-apps := AllBackup SystemUI SetupWizard Cloud NotePad HwIME Superuser MusicFx Launcher2 FileManager HwOUC \

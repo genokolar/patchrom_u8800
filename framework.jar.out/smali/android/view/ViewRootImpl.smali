@@ -344,6 +344,8 @@
 
 .field mSeq:I
 
+.field private mSkipResizedMsg:Z
+
 .field mSoftInputMode:I
 
 .field mStopped:Z
@@ -396,11 +398,6 @@
 
 .field mWindowAttributesChangesFlag:I
 
-.field private mSkipResizedMsg:Z
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-.end field
 
 # direct methods
 .method static constructor <clinit>()V
